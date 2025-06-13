@@ -1,4 +1,4 @@
-# Aplikasi To-Do List CRUD (Flutter + Laravel)
+# Flutter_Todolist
 
 ## Deskripsi Aplikasi
 Aplikasi **To-Do List** ini adalah aplikasi CRUD (Create, Read, Update, Delete) berbasis **Flutter** sebagai frontend dan **Laravel** sebagai backend API. Aplikasi ini memungkinkan pengguna untuk:
@@ -43,68 +43,55 @@ API berada di folder `/api/` dengan endpoint:
 ## Cara Instalasi
 
 ### 1. Clone Repository
-```bash
-git https://github.com/m-rafiff-edna/API-TODOLIST
+
+git clone https://github.com/m-rafiff-edna/API-TODOLIST
 cd todolist
-```
+2. Backend (Laravel)
+Masuk ke folder api/:
 
-### 2. Backend (Laravel)
-Masuk ke folder `api/`:
 
-```bash
 cd api
 composer install
 cp .env.example .env
 php artisan key:generate
-```
+Edit file .env dan sesuaikan konfigurasi database:
 
-Edit file `.env` dan sesuaikan konfigurasi database:
-```
+
 DB_DATABASE=todo_app
 DB_USERNAME=root
 DB_PASSWORD=   # kosongkan jika tidak pakai password
-```
-
 Jalankan migrasi database:
-```bash
+
+
 php artisan migrate
 php artisan serve
-```
+3. Frontend (Flutter)
+Masuk ke folder aplikasi Flutter (misal: flutter_app/):
 
-### 3. Frontend (Flutter)
-Masuk ke folder aplikasi Flutter (misal: `flutter_app/`):
 
-```bash
 cd flutter_app
 flutter pub get
 flutter run
-```
+Cara Menjalankan
+Jalankan Laravel API:
 
----
 
-## Cara Menjalankan
+php artisan serve
+Jalankan Flutter:
 
-1. Jalankan Laravel API:
-   ```bash
-   php artisan serve
-   ```
-2. Jalankan Flutter:
-   ```bash
-   flutter run
-   ```
 
----
-
-## Demo Aplikasi
-
+flutter run
+Demo Aplikasi
 https://github.com/user-attachments/assets/b59c5011-58e4-44da-87a5-f71d24c98f84
 
----
+Identitas Pembuat
+Nama: Muhammad Rafif Edna
 
-## Identitas Pembuat
+No: 24
 
-- **Nama**: Muhammad Rafif Edna
-- **No**: 24
-- **Kelas**: XI RPL2
-- **Sekolah**: SMK Negeri 1 Bantul
-- **Jurusan**: Rekayasa Perangkat Lunak (RPL)
+Kelas: XI RPL2
+
+Sekolah: SMK Negeri 1 Bantul
+
+Jurusan: Rekayasa Perangkat Lunak (RPL)
+
