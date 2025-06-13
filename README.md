@@ -117,7 +117,7 @@ Lihat demo aplikasi di sini:
 
 | Nama                        | Marchelino Iwayan Saputra |
 |-----------------------------|----------------------------|
-| Nomor Absen                | 24                         |
+| Nomor Absen                | 20                         |
 | Kelas                      | XI RPL2                   |
 | Sekolah                    | SMK Negeri 1 Bantul        |
 | Jurusan                    | Rekayasa Perangkat Lunak   |
