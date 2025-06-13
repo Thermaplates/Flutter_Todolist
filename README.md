@@ -62,7 +62,7 @@ Tabel `tasks`:
 
 ### 1. Clone Repository
 ```bash
-git clone https://github.com/m-rafiff-edna/API-TODOLIST
+git clone https://github.com/Thermaplates/Flutter_Todolist
 cd todolist
 ```
 
@@ -108,8 +108,12 @@ flutter run
 ---
 
 ## 🎥 Demo Aplikasi
-Lihat demo aplikasi di sini:  
-👉 [Demo Aplikasi](https://github.com/user-attachments/assets/b59c5011-58e4-44da-87a5-f71d24c98f84)
+
+
+
+https://github.com/user-attachments/assets/76de91f5-9a9b-4c2d-8d12-b69e890992a2
+
+
 
 ---
 
