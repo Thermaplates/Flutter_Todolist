@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base href="$FLUTTER_BASE_HREF">
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="A new Flutter project.">
+  
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="flutter_application_todo_flutter">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png">
+  
+  <title>Todolist_flutter</title>
+  <link rel="manifest" href="manifest.json">
+  
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+  
+  <style id="splash-screen-style">
+    html {
+      height: 100%
+    }
+
+    body {
+      margin: 0;
+      min-height: 100%;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      background-size: 100% 100%;
+      font-family: 'Arial', sans-serif;
+      overflow: hidden;
+    }
+
+    .splash-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    /* Among Us Character */
+    .among-us {
+      position: absolute;
+      left: 15%;
+      top: 45%;
+      transform: translateY(-50%);
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+    .among-us-body {
+      width: 60px;
+      height: 80px;
+      background: #ff4757;
+      border-radius: 30px 30px 15px 15px;
+      position: relative;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    .among-us-backpack {
+      width: 25px;
+      height: 35px;
+      background: #ff3742;
+      border-radius: 0 15px 15px 0;
+      position: absolute;
+      right: -8px;
+      top: 15px;
+    }
+
+    .among-us-visor {
+      width: 35px;
+      height: 25px;
+      background: #87ceeb;
+      border-radius: 20px;
+      position: absolute;
+      left: 8px;
+      top: 12px;
+      box-shadow: inset 0 2px 5px rgba(255,255,255,0.3);
+    }
+
+    .among-us-legs {
+      position: absolute;
+      bottom: -15px;
+      left: 5px;
+    }
+
+    .leg {
+      width: 20px;
+      height: 15px;
+      background: #ff4757;
+      border-radius: 0 0 10px 10px;
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+    /* File Upload Animation */
+    .file-transfer {
+      position: absolute;
+      left: 25%;
+      top: 35%;
+      width: 50%;
+      height: 30%;
+    }
+
+    .file {
+      width: 20px;
+      height: 25px;
+      background: #ffa502;
+      border-radius: 3px;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      animation: fileMove 3s linear infinite;
+    }
+
+    .file::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: #ff6348;
+      border-radius: 0 3px 0 0;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    .transfer-line {
+      position: absolute;
+      top: 50%;
+      left: 30px;
+      right: 80px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent 0%, #00d2d3 50%, transparent 100%);
+      transform: translateY(-50%);
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    .data-packets {
+      position: absolute;
+      top: 50%;
+      left: 30px;
+      right: 80px;
+      height: 2px;
+      transform: translateY(-50%);
+    }
+
+    .packet {
+      width: 4px;
+      height: 4px;
+      background: #00d2d3;
+      border-radius: 50%;
+      position: absolute;
+      animation: packetMove 2s linear infinite;
+    }
+
+    .packet:nth-child(1) { animation-delay: 0s; }
+    .packet:nth-child(2) { animation-delay: 0.3s; }
+    .packet:nth-child(3) { animation-delay: 0.6s; }
+    .packet:nth-child(4) { animation-delay: 0.9s; }
+
+    /* Signal Tower */
+    .signal-tower {
+      position: absolute;
+      right: 15%;
+      top: 30%;
+      transform: translateY(-50%);
+    }
+
+    .tower-base {
+      width: 40px;
+      height: 60px;
+      background: linear-gradient(180deg, #747d8c 0%, #57606f 100%);
+      border-radius: 5px;
+      position: relative;
+    }
+
+    .tower-antenna {
+      width: 4px;
+      height: 40px;
+      background: #2f3542;
+      position: absolute;
+      left: 50%;
+      top: -40px;
+      transform: translateX(-50%);
+    }
+
+    .signal-waves {
+      position: absolute;
+      left: 50%;
+      top: -30px;
+      transform: translateX(-50%);
+    }
+
+    .wave {
+      width: 20px;
+      height: 20px;
+      border: 2px solid #00d2d3;
+      border-radius: 50%;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      animation: waveExpand 2s ease-out infinite;
+    }
+
+    .wave:nth-child(1) { animation-delay: 0s; }
+    .wave:nth-child(2) { animation-delay: 0.5s; }
+    .wave:nth-child(3) { animation-delay: 1s; }
+
+    /* Loading Bar */
+    .loading-container {
+      position: absolute;
+      bottom: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+    }
+
+    .loading-text {
+      color: #ffffff;
+      font-size: 18px;
+      margin-bottom: 15px;
+      font-weight: bold;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .loading-bar {
+      width: 300px;
+      height: 8px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .loading-progress {
+      height: 100%;
+      background: linear-gradient(90deg, #00d2d3 0%, #0fbcf9 50%, #00d2d3 100%);
+      border-radius: 10px;
+      animation: loadingProgress 4s ease-in-out infinite;
+      box-shadow: 0 0 10px rgba(0, 210, 211, 0.5);
+    }
+
+    .loading-percentage {
+      color: #00d2d3;
+      font-size: 14px;
+      margin-top: 8px;
+      font-weight: bold;
+    }
+
+    /* Animations */
+    @keyframes bounce {
+      0%, 100% { transform: translateY(-50%) translateX(0); }
+      25% { transform: translateY(-55%) translateX(2px); }
+      75% { transform: translateY(-45%) translateX(-2px); }
+    }
+
+    @keyframes fileMove {
+      0% { left: 0; opacity: 1; }
+      90% { opacity: 1; }
+      100% { left: calc(100% - 20px); opacity: 0; }
+    }
+
+    @keyframes packetMove {
+      0% { left: 0; opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { left: 100%; opacity: 0; }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
+    }
+
+    @keyframes waveExpand {
+      0% {
+        width: 10px;
+        height: 10px;
+        opacity: 1;
+      }
+      100% {
+        width: 60px;
+        height: 60px;
+        opacity: 0;
+      }
+    }
+
+    @keyframes loadingProgress {
+      0% { width: 0%; }
+      25% { width: 30%; }
+      50% { width: 60%; }
+      75% { width: 85%; }
+      100% { width: 100%; }
+    }
+
+    /* Stars Background */
+    .stars {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle 3s ease-in-out infinite;
+    }
+
+    .star:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+    .star:nth-child(2) { top: 30%; left: 80%; animation-delay: 1s; }
+    .star:nth-child(3) { top: 70%; left: 20%; animation-delay: 2s; }
+    .star:nth-child(4) { top: 15%; left: 60%; animation-delay: 0.5s; }
+    .star:nth-child(5) { top: 80%; left: 70%; animation-delay: 1.5s; }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .among-us {
+        left: 10%;
+      }
+      
+      .signal-tower {
+        right: 10%;
+      }
+      
+      .loading-bar {
+        width: 250px;
+      }
+      
+      .loading-text {
+        font-size: 16px;
+      }
+    }
+  </style>
+  
+  <script id="splash-screen-script">
+    function removeSplashFromWeb() {
+      document.getElementById("splash")?.remove();
+      document.getElementById("splash-branding")?.remove();
+      document.body.style.background = "transparent";
+    }
+    
+    // Auto remove splash after animation completes
+    setTimeout(() => {
+      removeSplashFromWeb();
+    }, 5000);
+  </script>
+</head>
+
+<body>
+  <div id="splash" class="splash-container">
+    <!-- Stars Background -->
+    <div class="stars">
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+    </div>
+    
+    <!-- Among Us Character -->
+    <div class="among-us">
+      <div class="among-us-body">
+        <div class="among-us-backpack"></div>
+        <div class="among-us-visor"></div>
+        <div class="among-us-legs">
+          <div class="leg"></div>
+          <div class="leg"></div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- File Transfer Animation -->
+    <div class="file-transfer">
+      <div class="file"></div>
+      <div class="transfer-line"></div>
+      <div class="data-packets">
+        <div class="packet"></div>
+        <div class="packet"></div>
+        <div class="packet"></div>
+        <div class="packet"></div>
+      </div>
+    </div>
+    
+    <!-- Signal Tower -->
+    <div class="signal-tower">
+      <div class="tower-base">
+        <div class="tower-antenna"></div>
+        <div class="signal-waves">
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="wave"></div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Loading Bar -->
+    <div class="loading-container">
+      <div class="loading-text">Uploading Tasks...</div>
+      <div class="loading-bar">
+        <div class="loading-progress"></div>
+      </div>
+      <div class="loading-percentage">Please wait...</div>
+    </div>
+  </div>
+  
+  <script src="flutter_bootstrap.js" async=""></script>
+</body>
+</html>
